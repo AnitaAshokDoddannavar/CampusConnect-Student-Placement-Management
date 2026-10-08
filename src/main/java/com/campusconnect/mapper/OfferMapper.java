@@ -1,0 +1,19 @@
+package com.campusconnect.mapper;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+import com.campusconnect.dto.response.OfferResponseDTO;
+import com.campusconnect.entity.Offer;
+
+@Mapper(componentModel = "spring")
+public interface OfferMapper {
+
+    @Mapping(source = "application.applicationId", target = "applicationId")
+    @Mapping(source = "application.student.studentId", target = "studentId")
+    @Mapping(source = "application.student.name", target = "studentName")
+    @Mapping(source = "application.jobDrive.jobDriveId", target = "jobDriveId")
+    @Mapping(source = "application.jobDrive.jobTitle", target = "jobTitle")
+    @Mapping(source = "application.jobDrive.company.companyName", target = "companyName")
+    OfferResponseDTO toResponseDTO(Offer offer);
+}
